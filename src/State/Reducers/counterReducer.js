@@ -1,27 +1,20 @@
 const initialState = {
   counter: 0,
+  results: [],
 };
 
 const counterReducer = (state = initialState, action) => {
-  if (action.type === "INCREMENT") {
-    return {
-      counter: state.counter + action.incVal,
-    };
-  }
-  if (action.type === "DECREMENT") {
-    return {
-      counter: state.counter - action.decVal,
-    };
-  }
-  if (action.type === "ADD") {
-    return {
-      counter: state.counter + action.addVal,
-    };
-  }
-  if (action.type === "SUBS") {
-    return {
-      counter: state.counter - action.subsVal,
-    };
+  switch (action.type) {
+    case "INCREMENT":
+      return { ...state, counter: state.counter + action.incVal };
+    case "DECREMENT":
+      return { ...state, counter: state.counter + action.decVal };
+    case "ADD":
+      return { ...state, counter: state.counter + action.addVal };
+    case "SUBS":
+      return { ...state, counter: state.counter + action.subsVal };
+    case "STORE_RESULT":
+      return { ...state, counter: state.counter + action.subsVal };
   }
   return state;
 };
