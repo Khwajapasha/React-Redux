@@ -28,7 +28,6 @@ class Counter extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("state====--->>", state);
   return {
     counterDefaultValue: state.counter,
   };
@@ -36,10 +35,10 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onIncrementCounter: () => dispatch({ type: "INCREMENT" }),
-    onDecrementCounter: () => dispatch({ type: "DECREMENT" }),
-    onAdditionCounter: () => dispatch({ type: "ADD" }),
-    onSubstractionCounter: () => dispatch({ type: "SUBS" }),
+    onIncrementCounter: () => dispatch({ type: "INCREMENT", incVal: 2 }),
+    onDecrementCounter: () => dispatch({ type: "DECREMENT", decVal: 2 }),
+    onAdditionCounter: () => dispatch({ type: "ADD", addVal: 5 }),
+    onSubstractionCounter: () => dispatch({ type: "SUBS", subsVal: 5 }),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
