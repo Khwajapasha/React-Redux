@@ -16,7 +16,7 @@ const counterReducer = (state = initialState, action) => {
     case "STORE_RESULT":
       return {
         ...state,
-        results: state.result.concat({ id: new Date(), value: state.counter }),
+        results: state.results.concat({ id: new Date(), value: state.counter }),
       };
   }
   return state;

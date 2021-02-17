@@ -22,7 +22,14 @@ class Counter extends Component {
           label="Subtract 5"
           clicked={this.props.onSubstractionCounter}
         />
+        <hr />
         <button onClick={this.props.onStoreResult}>Store Count</button>
+        <ul>
+          {this.props.storeDefaultValue.map((storedResult) => {
+            console.log(storedResult);
+            return <li onClick={this.props.onDeleteResult}>{storedResult}</li>;
+          })}
+        </ul>
       </div>
     );
   }
