@@ -8,7 +8,6 @@ import { Provider } from "react-redux";
 import counterReducer from "./State/Reducers/counterReducer";
 
 const store = createStore(counterReducer);
-console.log("store----->", store);
 ReactDOM.render(
   <Provider store={store}>
     <App />
