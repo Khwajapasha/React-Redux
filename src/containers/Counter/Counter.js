@@ -45,10 +45,7 @@ class Counter extends Component {
           label="Decrement"
           clicked={this.props.onDecrementCounter}
         />
-        <CounterControl
-          label="Add 5"
-          clicked={() => this.counterChangedHandler("add", 5)}
-        />
+        <CounterControl label="Add 5" clicked={this.props.onAdditionCounter} />
         <CounterControl
           label="Subtract 5"
           clicked={() => this.counterChangedHandler("sub", 5)}
