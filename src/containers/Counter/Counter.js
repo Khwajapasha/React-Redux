@@ -36,10 +36,10 @@ class Counter extends Component {
   render() {
     return (
       <div>
-        <CounterOutput value={this.state.counter} />
+        <CounterOutput value={this.props.ctr} />
         <CounterControl
           label="Increment"
-          clicked={() => this.counterChangedHandler("inc")}
+          clicked={this.props.onIncrementCounter}
         />
         <CounterControl
           label="Decrement"
@@ -59,6 +59,7 @@ class Counter extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log("state====--->>", state);
   return {
     ctr: state.counter,
   };
