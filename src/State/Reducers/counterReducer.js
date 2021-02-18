@@ -1,3 +1,4 @@
+import * as actionTypes from "../Actions/counterAction";
 const initialState = {
   counter: 0,
   results: [],
@@ -5,23 +6,27 @@ const initialState = {
 
 const counterReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "INCREMENT":
+    case actionTypes.INCREMENT:
       return { ...state, counter: state.counter + action.incVal };
-    case "DECREMENT":
+    case actionTypes.DECREMENT:
       return { ...state, counter: state.counter - action.decVal };
-    case "ADD":
+    case actionTypes.ADD:
       return { ...state, counter: state.counter + action.addVal };
-    case "SUBS":
-      return { ...state, counter: state.counter - action.subsVal };
-    case "STORE_RESULT":
+    case actionTypes.SUBS:
+      return {
+        ...state,
+        counter: state.counter - action.subsVal,
+      };
+    case actionTypes.STORE_RESULT:
       return {
         ...state,
         results: state.results.concat({ id: new Date(), value: state.counter }),
       };
-    case "DELETE_RESULT":
+    case actionTypes.DELETE_RESULT:
       // const id = 0;
       // const newArray = [...state.results];
       // newArray.splice(id, 1);
+
       const updatedArray = state.results.filter(
         (result) => result.id !== action.resultElId
       );
