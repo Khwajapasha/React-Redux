@@ -10,7 +10,7 @@ const counterReducer = (state = initialState, action) => {
         ...state,
         results: state.results.concat({
           id: new Date(),
-          value: state.ctr.counter,
+          value: action.result,
         }),
       };
     case actionTypes.DELETE_RESULT:

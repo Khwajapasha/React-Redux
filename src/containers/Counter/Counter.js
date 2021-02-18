@@ -23,9 +23,15 @@ class Counter extends Component {
           clicked={this.props.onSubstractionCounter}
         />
         <hr />
-        <button onClick={this.props.onStoreResult}>Store Result</button>
+        <button
+          onClick={() =>
+            this.props.onStoreResult(this.props.counterDefaultValue)
+          }
+        >
+          Store Result
+        </button>
         <ul>
-          {this.props.ctr.storedResult.map((strResult) => (
+          {this.props.storedResult.map((strResult) => (
             <li
               key={strResult.id}
               onClick={() => this.props.onDeleteResult(strResult.id)}
@@ -41,8 +47,8 @@ class Counter extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    counterDefaultValue: state.counter,
-    storedResult: state.results,
+    counterDefaultValue: state.ctr.counter,
+    storedResult: state.res.results,
   };
 };
 
@@ -56,7 +62,7 @@ const mapDispatchToProps = (dispatch) => {
     onSubstractionCounter: () =>
       dispatch({ type: actionTypes.SUBS, subsVal: 5 }),
     onStoreResult: (result) =>
-      dispatch({ type: actionTypes.STORE_RESULT, results: result }),
+      dispatch({ type: actionTypes.STORE_RESULT, result: result }),
     onDeleteResult: (id) =>
       dispatch({ type: actionTypes.DELETE_RESULT, resultElId: id }),
   };
